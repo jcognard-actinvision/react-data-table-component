@@ -170,14 +170,20 @@ export function getConditionalStyle<T>(
 
 			// evaluate the field and if true return a the style to be applied
 			if (crs.when(row)) {
-				rowStyle = crs.style || {};
+				rowStyle = {
+					...rowStyle,
+					...crs.style,
+				};
 
 				if (crs.classNames) {
 					classNames = [...classNames, ...crs.classNames];
 				}
 
 				if (typeof crs.style === 'function') {
-					rowStyle = crs.style(row) || {};
+					rowStyle = {
+						...rowStyle,
+						...crs.style(row),
+					};
 				}
 			}
 		});
