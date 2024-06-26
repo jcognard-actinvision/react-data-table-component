@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "prepublish": "tsc",
   "scripts": {
-    "prepublishOnly": "npm run build",
+    "prepare": "npm run build",
     "build:dev": "rollup -c rollup/rollup.config.dev.js -m",
     "build:umd": "rollup -c rollup/rollup.config.umd.js",
     "build:cjs": "rollup -c rollup/rollup.config.cjs.js",
