@@ -4,19 +4,10 @@ import visualizer from 'rollup-plugin-visualizer';
 import typescript from 'rollup-plugin-typescript2';
 
 export const plugins = [
-	resolve({
-		browser: true,
-		preferBuiltins: true,
-		extensions: ['.ts', '.tsx'],
-	}),
-	commonjs({
-		include: 'node_modules/**',
-	}),
+	resolve({ browser: true, preferBuiltins: true, extensions: ['.ts', '.tsx'] }),
+	commonjs({ include: 'node_modules/**' }),
 	visualizer(),
-	typescript(),
+	typescript({ check: false, tsconfig: './tsconfig.json' }),
 ];
 
-export default {
-	input: './src/index.ts',
-	external: ['react', 'react-dom', 'styled-components'],
-};
+export default { input: './src/index.ts', external: ['react', 'react-dom', 'styled-components'] };
